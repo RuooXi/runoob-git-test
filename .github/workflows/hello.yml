@@ -1,0 +1,23 @@
+name: Hello GitHub Actions
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  say-hello:
+    name: 打印测试信息
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 打印 Hello
+        run: echo "Hello, GitHub Actions!"
+
+      - name: 显示当前仓库信息
+        run: |
+          echo "仓库名称：${{ github.repository }}"
+          echo "触发事件：${{ github.event_name }}"
+          echo "当前分支：${{ github.ref_name }}"
+          echo "提交人：${{ github.actor }}"
