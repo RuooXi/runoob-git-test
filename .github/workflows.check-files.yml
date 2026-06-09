@@ -1,0 +1,29 @@
+name: Check Respository Files
+on:
+push:
+branches:
+- master
+workflow_dispatch:
+
+jobs:
+check-files:
+name: check information
+runs-on: ubuntu-latest
+steps:
+- name: push information code
+uses: actions/checkout@v4
+
+-name: view the current catalogue
+run:
+pwd
+ls -la
+-name: check READMEM.md yes or not 
+
+run: 
+if if [ -f README.md ]; then
+            echo "README.md 存在"
+            cat README.md
+          else
+            echo "README.md 不存在"
+            exit 1
+          fi
